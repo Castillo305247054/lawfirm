@@ -7,7 +7,7 @@
     <style>
         :root {
             --primary-bg: #060b14;
-            --card-bg: rgba(15, 23, 42, 0.65);
+            --card-bg: rgba(15, 23, 42, 0.75);
             --gold-accent: #d4af37;
             --gold-bright: #f3e5ab;
             --text-main: #ffffff;
@@ -24,6 +24,9 @@
             position: relative;
             background-color: var(--primary-bg);
             overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Capa contenedora para el fondo rotatorio premium */
@@ -64,24 +67,45 @@
             100% { opacity: 0; }
         }
 
-        /* Contenedor central corporativo de alto impacto */
+        /* Contenedor central de alta escala, adaptativo para PC y Móvil */
         .container {
             position: relative;
             z-index: 1;
-            max-width: 550px;
+            width: 100%;
+            max-width: 1100px; /* Expandido para albergar diseño horizontal en PC */
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 40px 30px;
+            padding: 40px;
             border-radius: 24px;
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(212, 175, 55, 0.15);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            display: grid;
+            grid-template-columns: 1fr 1.2fr; /* Dos columnas en PC */
+            gap: 40px;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        /* Columna Izquierda: Identidad y Enlaces */
+        .profile-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Columna Derecha: Contenido y Multimedia */
+        .content-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
         }
 
         /* Encabezado Corporativo */
         .header-title {
-            font-size: 1.85em;
+            font-size: 2.2em;
             letter-spacing: 2px;
             margin-top: 15px;
             margin-bottom: 5px;
@@ -93,31 +117,31 @@
         }
 
         .header-subtitle {
-            font-size: 0.9em;
+            font-size: 0.95em;
             color: var(--gold-accent);
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .tarjeta-img { 
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%; 
             object-fit: cover;
             box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.4), 0 8px 30px rgba(0,0,0,0.8); 
-            margin: 0 auto 20px auto;
+            margin: 0 0 20px 0;
             display: block;
             border: 2px solid #ffffff;
         }
 
-        /* NICHOS FOTOGRÁFICOS DE CLASE MUNDIAL */
+        /* NICHOS FOTOGRÁFICOS */
         .photo-niches {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-            margin-bottom: 30px;
+            margin-top: 10px;
         }
 
         .niche-box {
@@ -136,20 +160,13 @@
             border-color: var(--gold-accent);
         }
 
-        .niche-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
         .niche-placeholder {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7em;
+            font-size: 0.75em;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -159,15 +176,15 @@
 
         /* Leyenda Profesional Ejecutiva */
         .leyenda-profesional {
-            font-size: 1em;
+            font-size: 1.05em;
             line-height: 1.6;
             color: #f8fafc;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
-            margin: 0 0 35px 0;
-            padding: 22px;
+            margin: 0;
+            padding: 25px;
             background: rgba(4, 7, 13, 0.75);
             border-radius: 14px;
-            border-left: 3px solid var(--gold-accent);
+            border-left: 4px solid var(--gold-accent);
             text-align: justify;
         }
 
@@ -175,7 +192,6 @@
             display: flex;
             flex-direction: column;
             gap: 14px;
-            margin-bottom: 35px;
         }
 
         @keyframes fadeInUp {
@@ -216,7 +232,7 @@
         .btn:nth-child(4) { animation-delay: 0.8s; }
         .btn:nth-child(5) { animation-delay: 1.0s; }
 
-        /* Estilos cromáticos de los botones internacionales */
+        /* Estilos cromáticos de los botones */
         .btn-whatsapp { background: linear-gradient(135deg, #1e7e34 0%, #25D366 100%); border-bottom: 3px solid #125e29; }
         .btn-linkedin { background: linear-gradient(135deg, #005983 0%, #0077B5 100%); border-bottom: 3px solid #003f5c; }
         .btn-tableau { background: linear-gradient(135deg, #b95517 0%, #e97627 100%); border-bottom: 3px solid #8e3f0f; }
@@ -232,59 +248,53 @@
             padding: 20px;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            text-align: left;
         }
         .qr-section p {
-            margin-top: 0;
-            margin-bottom: 15px;
+            margin: 0;
             font-weight: 500;
-            font-size: 0.88em;
+            font-size: 0.85em;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 2px;
+            line-height: 1.4;
         }
         .qr-img { 
-            max-width: 140px;
+            max-width: 110px;
             height: auto;
             border-radius: 8px;
             background-color: white;
-            padding: 10px;
+            padding: 8px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.6);
             border: 1px solid var(--gold-accent);
+            flex-shrink: 0;
         }
-    </style>
-</head>
-<body>
 
-    <!-- FONDO ROTATORIO DE ALTA CONTEXTUALIZACIÓN -->
-    <div class="bg-rotator">
-        <div class="bg-slide bg-1"></div>
-        <div class="bg-slide bg-2"></div>
-        <div class="bg-slide bg-3"></div>
-    </div>
-
-    <div class="container">
-        <!-- FOTO DE PERFIL PRESIDENCIAL -->
-        <img src="tarjet 2.png" alt="Lic. Marco Antonio Castillo Frías" class="tarjeta-img">
-
-        <!-- TÍTULOS CORPORATIVOS -->
-        <h1 class="header-title">Marco Antonio Castillo Frías</h1>
-        <div class="header-subtitle">Firma Legal Global & LegalOps</div>
-
-        <!-- 📸 NICHOS FOTOGRÁFICOS ESTRUCTURADOS CORRECTAMENTE -->
-        <div class="photo-niches">
-            <!-- NICHO 1 -->
-            <div class="niche-box">
-                <div class="niche-placeholder">🏛️ Corporativo</div>
-            </div>
-            <!-- NICHO 2 -->
-            <div class="niche-box">
-                <div class="niche-placeholder">⚖️ Amparo</div>
-            </div>
-            <!-- NICHO 3 -->
-            <div class="niche-box">
-                <div class="niche-placeholder">📊 LegalTech</div>
-            </div>
-        </div>
-
-        <div class="leyenda-profesional">
-            <strong>Especialista en Litigio Constitucional y Operaciones Legales de Vanguardia.</strong> Director de Operaciones Legales (LegalOps), Abogado Amparista y Data Engineer. <br><br>
+        /* 📱 MEDIA QUERY: Reglas exclusivas para Celulares (Pantallas menores a 850px) */
+        @media (max-width: 850px) {
+            body {
+                padding: 20px 10px;
+            }
+            .container {
+                grid-template-columns: 1fr; /* Cambia a una sola columna vertical */
+                gap: 25px;
+                padding: 25px 20px;
+                text-align: center;
+            }
+            .tarjeta-img {
+                margin: 0 auto 20px auto;
+            }
+            .leyenda-profesional {
+                text-align: justify;
+            }
+            .qr-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .qr-img {
+                margin: 0 auto;
+            }
