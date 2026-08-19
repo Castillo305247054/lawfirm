@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco Antonio Castillo Frías | Litigio Constitucional Internacional</title>
+    <style>
+        :root {
+            --primary-bg: #060b14;
+            --card-bg: rgba(15, 23, 42, 0.65);
+            --gold-accent: #d4af37;
+            --gold-bright: #f3e5ab;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        body { 
+            text-align: center; 
+            font-family: 'Times New Roman', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif; 
+            margin: 0;
+            padding: 40px 20px;
+            color: var(--text-main);
+            min-height: 100vh;
+            position: relative;
+            background-color: var(--primary-bg);
+            overflow-x: hidden;
+        }
+
+        /* Capa contenedora para el fondo rotatorio premium */
+        .bg-rotator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bg-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            opacity: 0;
+            animation: rotateBg 20s infinite ease-in-out;
+            filter: brightness(0.25) contrast(1.1);
+        }
+
+        /* Enlaces a tus imágenes sólidas de fondo */
+        .bg-1 { background-image: url('ambos.jfif'); animation-delay: 0s; }
+        .bg-2 { background-image: url('escudo-y-lema-UNAM.jpg'); animation-delay: 6s; }
+        .bg-3 { background-image: url('unam.jpg'); animation-delay: 12s; }
+
+        @keyframes rotateBg {
+            0% { opacity: 0; transform: scale(1); }
+            8% { opacity: 1; transform: scale(1.03); }
+            33% { opacity: 1; transform: scale(1.03); }
+            41% { opacity: 0; transform: scale(1.06); }
+            100% { opacity: 0; }
+        }
+
+        /* Contenedor central corporativo de alto impacto */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 550px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 24px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Encabezado Corporativo */
+        .header-title {
+            font-size: 1.85em;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff 30%, var(--gold-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .tarjeta-img { 
+            width: 140px;
+            height: 140px;
+            border-radius: 50%; 
+            object-fit: cover;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.4), 0 8px 30px rgba(0,0,0,0.8); 
+            margin: 0 auto 20px auto;
+            display: block;
+            border: 2px solid #ffffff;
+        }
+
+        /* NICHOS FOTOGRÁFICOS DE CLASE MUNDIAL */
+        .photo-niches {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .niche-box {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .niche-box:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold-accent);
+        }
+
+        .niche-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .niche-placeholder {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Leyenda Profesional Ejecutiva */
+        .leyenda-profesional {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #f8fafc;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+            margin: 0 0 35px 0;
+            padding: 22px;
+            background: rgba(4, 7, 13, 0.75);
+            border-radius: 14px;
+            border-left: 3px solid var(--gold-accent);
+            text-align: justify;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 35px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 24px;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.25s ease;
+            opacity: 0;
+            animation: fadeInUp 0.5s forwards ease-out;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+            filter: brightness(1.1);
+        }
+
+        .btn:active { transform: scale(0.98); }
+
+        /* Asignación de cascada */
+        .btn:nth-child(1) { animation-delay: 0.2s; }
+        .btn:nth-child(2) { animation-delay: 0.4s; }
+        .btn:nth-child(3) { animation-delay: 0.6s; }
+        .btn:nth-child(4) { animation-delay: 0.8s; }
+        .btn:nth-child(5) { animation-delay: 1.0s; }
+
+        /* Estilos cromáticos de los botones internacionales */
+        .btn-whatsapp { background: linear-gradient(135deg, #1e7e34 0%, #25D366 100%); border-bottom: 3px solid #125e29; }
+        .btn-linkedin { background: linear-gradient(135deg, #005983 0%, #0077B5 100%); border-bottom: 3px solid #003f5c; }
+        .btn-tableau { background: linear-gradient(135deg, #b95517 0%, #e97627 100%); border-bottom: 3px solid #8e3f0f; }
+        .btn-coursera { background: linear-gradient(135deg, #003d99 0%, #0056d2 100%); border-bottom: 3px solid #002663; }
+        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .btn-github { background-color: rgba(36, 41, 46, 0.9); }
+
+        .hidden { display: none !important; }
+
+        /* Sección QR Institucional */
+        .qr-section {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .qr-section p {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 0.88em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .qr-img { 
+            max-width: 140px;
+            height: auto;
+            border-radius: 8px;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            border: 1px solid var(--gold-accent);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FONDO ROTATORIO DE ALTA CONTEXTUALIZACIÓN -->
+    <div class="bg-rotator">
+        <div class="bg-slide bg-1"></div>
+        <div class="bg-slide bg-2"></div>
+        <div class="bg-slide bg-3"></div>
+    </div>
+
+    <div class="container">
+        <!-- FOTO DE PERFIL PRESIDENCIAL -->
+        <img src="tarjet 2.png" alt="Lic. Marco Antonio Castillo Frías" class="tarjeta-img">
+
+        <!-- TÍTULOS CORPORATIVOS -->
+        <h1 class="header-title">Marco Antonio Castillo Frías</h1>
+        <div class="header-subtitle">Firma Legal Global & LegalOps</div>
+
+        <!-- 📸 NICHOS FOTOGRÁFICOS ESTRUCTURADOS CORRECTAMENTE -->
+        <div class="photo-niches">
+            <!-- NICHO 1 -->
+            <div class="niche-box">
+                <div class="niche-placeholder">🏛️ Corporativo</div>
+            </div>
+            <!-- NICHO 2 -->
+            <div class="niche-box">
+                <div class="niche-placeholder">⚖️ Amparo</div>
+            </div>
+            <!-- NICHO 3 -->
+            <div class="niche-box">
+                <div class="niche-placeholder">📊 LegalTech</div>
+            </div>
+        </div>
+
+        <div class="leyenda-profesional">
+            <strong>Especialista en Litigio Constitucional y Operaciones Legales de Vanguardia.</strong> Director de Operaciones Legales (LegalOps), Abogado Amparista y Data Engineer. <br><br>
